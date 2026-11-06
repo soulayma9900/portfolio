@@ -1,0 +1,66 @@
+<section id="hero" class="hero">
+  <div id="tsparticles"></div>
+
+  <div class="hero-layout">
+    <aside class="hero-visual">
+      <img src="assets/images/profile.png" alt="Soulayma Hrira" class="hero-photo" />
+
+      <div class="hero-highlights">
+        <div class="hero-highlight">
+          <span class="highlight-icon">📍</span>
+          <span class="highlight-label">Location</span>
+          <span class="highlight-value">Tunis, Tunisia</span>
+        </div>
+        <div class="hero-highlight">
+          <span class="highlight-icon">🎓</span>
+          <span class="highlight-label">Education</span>
+          <span class="highlight-value">M.Sc. Data Science</span>
+        </div>
+        <div class="hero-highlight">
+          <span class="highlight-icon">🌐</span>
+          <span class="highlight-label">Languages</span>
+          <span class="highlight-value">EN · FR · AR</span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="hero-content">
+      <div class="hero-badge animate-1">
+        <span class="badge-dot"></span>
+        Available for opportunities
+      </div>
+
+      <h1 class="hero-name animate-2">
+        Soulayma<br><span class="name-accent">Hrira</span>
+      </h1>
+
+      <div class="hero-role animate-3">
+        <span class="role-text">{{ displayedRole }}</span>
+        <span class="cursor">|</span>
+      </div>
+
+      <p class="hero-description animate-4">
+        Final-year engineering student with practical experience in machine learning, data analysis, and web development. Skilled in building ML models, processing large datasets, and collaborative coding. Eager to apply these skills to high-performance computing and scientific data challenges.
+      </p>
+
+      <div class="hero-actions animate-5">
+        <button class="btn-primary" (click)="scrollTo('projects')">
+          View My Work
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-outline" (click)="scrollTo('contact')">
+          Get in Touch
+        </button>
+        <a href="assets/Soulayma_Hrira_CV.pdf" download="Soulayma_Hrira_CV.pdf" class="btn-outline">
+          Download CV
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll animate-7" (click)="scrollTo('skills')">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>

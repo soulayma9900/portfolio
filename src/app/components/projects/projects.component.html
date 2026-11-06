@@ -1,0 +1,52 @@
+<section id="projects" class="projects-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-subtitle">A selection of data science and ML projects — click any card to explore the full case study.</p>
+    </div>
+
+    <div class="filter-bar">
+      <button
+        *ngFor="let cat of categories"
+        class="filter-btn"
+        [class.active]="activeCategory === cat"
+        (click)="setCategory(cat)">
+        {{ cat }}
+      </button>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card glass-card" *ngFor="let project of filteredProjects"
+           (click)="openModal(project)">
+        <div class="card-image">
+          <div class="image-placeholder" *ngIf="project.thumbnail.includes('project-placeholder'); else cardImage">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <ng-template #cardImage>
+            <img class="card-thumb" [src]="project.thumbnail" [alt]="project.title" />
+          </ng-template>
+          <div class="card-overlay">
+            <span class="overlay-text">View Case Study →</span>
+          </div>
+          <span class="card-category">{{ project.category }}</span>
+        </div>
+
+        <div class="card-body">
+          <h3 class="card-title">{{ project.title }}</h3>
+          <p class="card-description">{{ project.shortDescription }}</p>
+          <div class="card-tags">
+            <span class="tag" *ngFor="let tag of project.tags.slice(0, 3)">{{ tag }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <app-project-modal
+    *ngIf="selectedProject"
+    [project]="selectedProject"
+    (close)="closeModal()">
+  </app-project-modal>
+</section>

@@ -1,0 +1,24 @@
+<nav class="navbar" [class.scrolled]="scrolled">
+  <div class="nav-inner">
+    <a class="nav-logo" (click)="scrollTo('#hero')">
+      <span class="logo-bracket">&lt;</span>SH<span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <ul class="nav-links" [class.open]="menuOpen">
+      <li *ngFor="let link of navLinks">
+        <a [class.active]="activeSection === link.href.replace('#', '')"
+           (click)="scrollTo(link.href)">
+          {{ link.label }}
+        </a>
+      </li>
+    </ul>
+
+    <a class="btn-primary nav-cta" (click)="scrollTo('#contact')">
+      Hire Me
+    </a>
+
+    <button class="hamburger" [class.open]="menuOpen" (click)="toggleMenu()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>

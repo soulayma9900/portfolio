@@ -1,0 +1,27 @@
+<section id="certificates" class="certs-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Credentials</span>
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-subtitle">Verified credentials from leading cloud providers and AI institutions.</p>
+    </div>
+
+    <div class="certs-grid">
+      <div class="cert-card glass-card" *ngFor="let cert of certificates">
+        <div class="cert-icon" [style.background]="cert.color + '18'" [style.border-color]="cert.color + '33'">
+          <span>{{ cert.icon }}</span>
+        </div>
+        <div class="cert-content">
+          <h3 class="cert-title">{{ cert.title }}</h3>
+          <div class="cert-meta">
+            <span class="cert-issuer">{{ cert.issuer }}</span>
+            <span class="cert-sep">·</span>
+            <span class="cert-date">{{ cert.date }}</span>
+          </div>
+          <span class="cert-id" *ngIf="cert.credentialId">ID: {{ cert.credentialId }}</span>
+        </div>
+        <div class="cert-badge" [style.color]="cert.color">✓</div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+<section id="experience" class="experience-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Career</span>
+      <h2 class="section-title">Work Experience</h2>
+      <p class="section-subtitle">A track record of delivering data-driven impact across industries.</p>
+    </div>
+
+    <div class="experience-list">
+      <div class="exp-item glass-card" *ngFor="let exp of experiences; let i = index"
+           [class.expanded]="exp.expanded">
+        <div class="exp-header" (click)="toggle(exp)">
+          <div class="exp-number">{{ (i + 1).toString().padStart(2, '0') }}</div>
+          <div class="exp-meta">
+            <h3 class="exp-role">{{ exp.role }}</h3>
+            <div class="exp-details">
+              <span class="exp-company">{{ exp.company }}</span>
+              <ng-container *ngIf="exp.position">
+                <span class="exp-separator">·</span>
+                <span class="exp-position">{{ exp.position }}</span>
+              </ng-container>
+              <span class="exp-separator">·</span>
+              <span class="exp-period">{{ exp.period }}</span>
+              <ng-container *ngIf="exp.location">
+                <span class="exp-separator">·</span>
+                <span class="exp-location">{{ exp.location }}</span>
+              </ng-container>
+            </div>
+          </div>
+          <button class="exp-toggle" [class.open]="exp.expanded">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+
+        <div class="exp-body" *ngIf="exp.expanded">
+          <p class="exp-description" *ngIf="exp.description">{{ exp.description }}</p>
+          <ul class="exp-highlights" [class.no-intro]="!exp.description">
+            <li *ngFor="let h of exp.highlights">
+              <span class="highlight-dot"></span>
+              <span [innerHTML]="h"></span>
+            </li>
+          </ul>
+          <div class="exp-tech" *ngIf="exp.techStack?.length">
+            <span class="exp-tech-label">Tech Stack</span>
+            <div class="exp-tech-tags">
+              <span class="tag" *ngFor="let t of exp.techStack">{{ t }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

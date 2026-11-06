@@ -1,0 +1,24 @@
+<section id="workflow" class="workflow-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Process</span>
+      <h2 class="section-title">How I Work</h2>
+      <p class="section-subtitle">A structured, end-to-end approach to data science that prioritizes clarity and impact.</p>
+    </div>
+
+    <div class="workflow-grid">
+      <div class="step-card glass-card"
+           *ngFor="let step of steps; let i = index"
+           [class.active]="activeStep === i"
+           (click)="setActive(i)">
+        <div class="step-top">
+          <div class="step-icon">{{ step.icon }}</div>
+          <span class="step-number">{{ step.number }}</span>
+        </div>
+        <h3 class="step-title">{{ step.title }}</h3>
+        <p class="step-desc" [class.visible]="activeStep === i">{{ step.description }}</p>
+        <div class="step-expand-hint" *ngIf="activeStep !== i">Hover to expand</div>
+      </div>
+    </div>
+  </div>
+</section>

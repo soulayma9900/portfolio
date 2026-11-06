@@ -1,0 +1,32 @@
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Technical Stack</span>
+      <h2 class="section-title">My Toolkit</h2>
+      <p class="section-subtitle">A curated set of technologies I use to collect, process, model, and communicate data.</p>
+    </div>
+
+    <div class="filter-bar">
+      <button
+        *ngFor="let cat of categories"
+        class="filter-btn"
+        [class.active]="activeCategory === cat"
+        (click)="setCategory(cat)">
+        {{ cat }}
+      </button>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card glass-card" *ngFor="let skill of filteredSkills">
+        <div class="skill-icon">{{ skill.icon }}</div>
+        <div class="skill-info">
+          <span class="skill-name">{{ skill.name }}</span>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill" [style.width.%]="skill.level"></div>
+          </div>
+          <span class="skill-pct">{{ skill.level }}%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
